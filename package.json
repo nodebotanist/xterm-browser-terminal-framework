@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/nodebotanist/xterm-browser-terminal-framework/issues"
   },
-  "homepage": "https://github.com/nodebotanist/xterm-browser-terminal-framework#readme"
+  "homepage": "https://github.com/nodebotanist/xterm-browser-terminal-framework#readme",
+  "dependencies": {
+    "yargs": "^12.0.5"
+  },
+  "devDependencies": {
+    "xterm": "^3.9.1"
+  }
 }
