@@ -2,3 +2,4 @@ example/
 README.md
 API.md
 src/
+webpack.config.js
