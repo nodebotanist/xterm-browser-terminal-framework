@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/nodebotanist/xterm-browser-terminal-framework#readme",
   "dependencies": {
-    "yargs": "^12.0.5"
+    "yargs-parser": "^11.1.1"
   },
   "devDependencies": {
     "webpack": "^4.27.1",
