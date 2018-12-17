@@ -1,0 +1,24 @@
+{
+  "name": "xterm-browser-terminal-framework",
+  "version": "0.0.0",
+  "description": "A framework that goes onto xterm.js to easily create browser interactive terminals",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodebotanist/xterm-browser-terminal-framework.git"
+  },
+  "keywords": [
+    "xterm",
+    "\"browser",
+    "terminal\""
+  ],
+  "author": "nodebotanist",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/nodebotanist/xterm-browser-terminal-framework/issues"
+  },
+  "homepage": "https://github.com/nodebotanist/xterm-browser-terminal-framework#readme"
+}
