@@ -5,7 +5,7 @@ function Parser(dispatcher) {
 }
 
 Parser.prototype.parse = function (data) {
-  console.log(yargs(data))
+  this.dispatcher.dispatch(yargs(data))
 }
 
 module.exports = Parser
