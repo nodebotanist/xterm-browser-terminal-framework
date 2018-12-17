@@ -3,5 +3,5 @@ const BrowserTerminal = require('../src/terminal').Terminal
 
 let term = new Terminal({})
 let terminal = new BrowserTerminal(term)
-terminal.setup()
 term.open(document.getElementById('#terminal'))
+terminal.setup()
