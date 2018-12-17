@@ -6,21 +6,20 @@ function BrowserTerminal (xTermInstance) {
   this.dispatcher = new Dispatcher()
   this.parser = new Parser(this.dispatcher)
   this.currentLine = ''
-  this.newLine = '\n\r'
+  this.newLine = '\r\n'
   this.terminal.prompt = () => {
     this.terminal.write(`${this.newLine}$ `)
   }
 }
 
 BrowserTerminal.prototype.setup= function () {
-  this.terminal.prompt()
+  this.terminal.write('$ ')
 
   this.terminal._core.register(this.terminal.addDisposableListener('key', (key, ev) => {
     const printable = !ev.altKey && !ev.altGraphKey && !ev.ctrlKey && !ev.metaKey;
   
     if (ev.keyCode === 13) {
       if(this.currentLine.length > 0) {
-        this.terminal.write(`${this.newLine}`)
         this.terminal.write(this.parser.parse(this.currentLine))
         this.currentLine =  ''
       }
