@@ -1,0 +1,1 @@
+const BrowserTerminal = require('../dist/BrowserTerminal')
