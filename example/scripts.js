@@ -1,5 +1,6 @@
 const Terminal = require('xterm').Terminal
-const BrowserTerminal = require('../dist/BrowserTerminal')
+const BrowserTerminal = require('../src/terminal').Terminal
 
 let term = new Terminal({})
+let terminal = new BrowserTerminal(term)
 term.open(document.getElementById('#terminal'))

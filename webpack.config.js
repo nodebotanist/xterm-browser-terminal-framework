@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   mode: "development",
-  entry: "./src/index.js",
+  entry: "./src/terminal.js",
   // Here the application starts executing
   // and webpack starts bundling
   output: {

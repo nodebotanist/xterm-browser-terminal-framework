@@ -6,3 +6,7 @@ function BrowserTerminal (xTermInstance) {
   this.dispatcher = new Dispatcher()
   this.parser = new Parser()
 }
+
+module.exports = {
+  Terminal: BrowserTerminal
+}
