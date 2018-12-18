@@ -1,14 +1,17 @@
 const Dispatcher = require('./dispatcher')
 const Parser = require('./parser')
+const format = require('./format')
 
 function BrowserTerminal (xTermInstance) {
   this.terminal = xTermInstance
   this.dispatcher = new Dispatcher()
   this.parser = new Parser(this.dispatcher)
+  this.format = format
+
+
   this.currentLine = ''
-  this.newLine = '\r\n'
   this.terminal.prompt = () => {
-    this.terminal.write(`${this.newLine}$ `)
+    this.terminal.write(`${format.newLine()}$ `)
   }
 }
 
