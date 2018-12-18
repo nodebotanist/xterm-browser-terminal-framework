@@ -15,7 +15,7 @@ Wherever you set up your xterm js terminal:
 ```javascript
 
 const Terminal = require('xterm').Terminal
-const BrowserTerminal = require('../src/terminal').Terminal
+const BrowserTerminal = require('xterm-browser').Terminal
 
 let term = new Terminal({})
 let terminal = new BrowserTerminal(term)
