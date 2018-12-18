@@ -1,6 +1,6 @@
 {
   "name": "xterm-browser",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A framework that goes onto xterm.js to easily create browser interactive terminals",
   "main": "src/terminal.js",
   "scripts": {
