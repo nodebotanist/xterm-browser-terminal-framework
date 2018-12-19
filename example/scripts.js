@@ -1,5 +1,5 @@
-const Terminal = require('xterm').Terminal
 const BrowserTerminal = require('../src/terminal').Terminal
+
 const theme = {
   black: '#040303',
   brightBlack: '#6090cb',
@@ -22,19 +22,17 @@ const theme = {
   cursor: '#f3c947'
 }
 
-let term = new Terminal({
+let terminal = new BrowserTerminal({
   theme
 })
-
-let terminal = new BrowserTerminal(term)
-term.open(document.getElementById('#terminal'))
+terminal.open(document.getElementById('#terminal'))
 terminal.setup()
 
-term.writeln(`${terminal.format.text('blue')}Text color test${terminal.format.reset('all')}`)
-term.writeln(`${terminal.format.background('red')}Background color test${terminal.format.reset('all')}`)
-term.writeln(`${terminal.format.brightBackground('cyan')}Background color test${terminal.format.reset('all')}`)
-term.writeln(`${terminal.format.style('reverse')}Reverse test (switches background and foreground color)${terminal.format.reset('all')}`)
-term.writeln(`${terminal.format.brightText('green')}Bright text test${terminal.format.reset('all')}`)
+terminal.writeln(`${terminal.format.text('blue')}Text color test${terminal.format.reset('all')}`)
+terminal.writeln(`${terminal.format.background('red')}Background color test${terminal.format.reset('all')}`)
+terminal.writeln(`${terminal.format.brightBackground('cyan')}Background color test${terminal.format.reset('all')}`)
+terminal.writeln(`${terminal.format.style('reverse')}Reverse test (switches background and foreground color)${terminal.format.reset('all')}`)
+terminal.writeln(`${terminal.format.brightText('green')}Bright text test${terminal.format.reset('all')}`)
 
 terminal.dispatcher.on("hello", (data) => {
   console.log("hello!", data)

@@ -10,36 +10,34 @@ npm i xterm-browser
 
 ## Usage
 
-Wherever you set up your xterm js terminal:
+Wherever you would normally set up your xterm js terminal:
 
 ```javascript
 
-const Terminal = require('xterm').Terminal
 const BrowserTerminal = require('xterm-browser').Terminal
 
-let term = new Terminal({})
-let terminal = new BrowserTerminal(term)
-term.open(document.getElementById('#terminal'))
+let term = new BrowserTerminal({})
+terminal.open(document.getElementById('#terminal'))
 terminal.setup() // sets up the parser and event listeners.
 
 ```
 
 ## Writing to the terminal
 
-Writing text to the terminal is done via xterm's Terminal object (A reference is held in the xterm-browser Terminal instance as .terminal)
+xterm-browser extends xterm js, so you can call methods directly:
 
 ```javascript
-terminal.terminal.write('I am writing to the terminal')
+terminal.write('I am writing to the terminal')
 ```
 
 You can also use the Terminal.format utility to change colors and text backgrounds:
 
 ```javascript
-term.writeln(`${terminal.format.text('blue')}Text color test${terminal.format.reset('all')}`)
-term.writeln(`${terminal.format.background('red')}Background color test${terminal.format.reset('all')}`)
-term.writeln(`${terminal.format.brightBackground('cyan')}Background color test${terminal.format.reset('all')}`)
-term.writeln(`${terminal.format.style('reverse')}Reverse test (switches background and foreground color)${terminal.format.reset('all')}`)
-term.writeln(`${terminal.format.brightText('green')}Bright text test${terminal.format.reset('all')}`)
+terminal.writeln(`${terminal.format.text('blue')}Text color test${terminal.format.reset('all')}`)
+terminal.writeln(`${terminal.format.background('red')}Background color test${terminal.format.reset('all')}`)
+terminal.writeln(`${terminal.format.brightBackground('cyan')}Background color test${terminal.format.reset('all')}`)
+terminal.writeln(`${terminal.format.style('reverse')}Reverse test (switches background and foreground color)${terminal.format.reset('all')}`)
+terminal.writeln(`${terminal.format.brightText('green')}Bright text test${terminal.format.reset('all')}`)
 ```
 
 NOTE: styles and colors will overlap or override each other without a call to `Terminal.format.reset('all')`.
