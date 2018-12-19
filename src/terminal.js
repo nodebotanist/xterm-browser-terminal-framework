@@ -38,6 +38,10 @@ BrowserTerminal.prototype.setup= function () {
       this.terminal.write(key)
     }
   }))
+
+  term._core.register(term.addDisposableListener('paste', (data, ev) => {
+    term.write(data)
+  }))
   
 }
 
