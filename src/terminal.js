@@ -42,6 +42,10 @@ BrowserTerminal.prototype.setup= function () {
       this.write(key)
     }
   }))
+
+  term._core.register(term.addDisposableListener('paste', (data, ev) => {
+    term.write(data)
+  }))
   
 }
 
