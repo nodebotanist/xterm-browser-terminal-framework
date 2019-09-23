@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "webpack": "^4.27.1",
-    "xterm": "^3.9.1"
+    "xterm": "^3.14.5"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.8.1"

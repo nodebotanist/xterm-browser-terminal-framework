@@ -1,6 +1,6 @@
 {
   "name": "xterm-browser",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A framework that goes onto xterm.js to easily create browser interactive terminals",
   "main": "src/terminal.js",
   "scripts": {
@@ -27,6 +27,6 @@
   "devDependencies": {
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
-    "xterm": "^3.9.1"
+    "xterm": "^3.14.5"
   }
 }
