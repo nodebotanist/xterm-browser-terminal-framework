@@ -1,5 +1,6 @@
 const util = require('util')
 const xterm = require('xterm').Terminal
+const yargs = require('yargs-parser')
 
 const Dispatcher = require('./dispatcher')
 const Parser = require('./parser')
@@ -9,6 +10,7 @@ function BrowserTerminal (args) {
   xterm.call(this, args)
   this.dispatcher = new Dispatcher()
   this.parser = new Parser(this.dispatcher)
+  console.log(this)
   this.format = format
 
   this._currentLine = ''
@@ -20,31 +22,26 @@ function BrowserTerminal (args) {
 util.inherits(BrowserTerminal, xterm)
 
 BrowserTerminal.prototype.setup= function () {
-  this.write('$ ')
-
-  this._core.register(this.addDisposableListener('key', (key, ev) => {
-    const printable = !ev.altKey && !ev.altGraphKey && !ev.ctrlKey && !ev.metaKey;
+  this._core.register(this.onKey((key) => {
+    console.log(key )
+    const printable = !key.domEvent.altKey && !key.domEvent.altGraphKey && !key.domEvent.ctrlKey && !key.domEvent.metaKey;
   
-    if (ev.keyCode === 13) {
+    if (key.domEvent.keyCode === 13) {
       if(this._currentLine.length > 0) {
-        this.write(this.parser.parse(this._currentLine))
+        this.dispatcher.dispatch(yargs(this._currentLine))
         this._currentLine =  ''
       }
       this.prompt()
-    } else if (ev.keyCode === 8) {
+    } else if (key.domEvent.keyCode === 8) {
       // Do not delete the prompt
       if(this._currentLine.length > 0) {
         this.write('\b \b')
         this._currentLine = this._currentLine.substring(0, this._currentLine.length - 1)
       }
     } else if (printable) {
-      this._currentLine = this._currentLine.concat(key)
-      this.write(key)
+      this._currentLine = this._currentLine.concat(key.key)
+      this.write(key.key)
     }
-  }))
-
-  term._core.register(term.addDisposableListener('paste', (data, ev) => {
-    term.write(data)
   }))
   
 }
